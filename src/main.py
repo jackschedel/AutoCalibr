@@ -9,6 +9,8 @@ tokenizer = Tokenizer(BPE(unk_token="[UNK]"))
 
 trainer = BpeTrainer(special_tokens=["[UNK]", "[CLS]", "[SEP]", "[PAD]", "[MASK]"])
 
-paths = [str(x) for x in Path("../trainingSet/fbx").glob("**/*.fbx")]
+paths = [str(x) for x in Path("../trainingSet/ply").glob("**/*.ply")]
 
 tokenizer.train(paths, trainer)
+
+tokenizer.save("../tokenizer/ply-tokenizer.json")
